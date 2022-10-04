@@ -1,7 +1,12 @@
+//Styled Components
+//Styled-components is a CSS-in-JS library that enables you to write regular CSS and attach it to JavaScript components
+//styled gives us the option to use any HTML element, such as div, section, span, inputs, etc
+//Global styles are styles that are used by all elements in a page
 import styled, { createGlobalStyle } from "styled-components";
-import BGImage from "./Images/Beach.jpg";
+import BGImage from "./Images/Beach.jpg"; //importing the image and setting it as BGImage
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`//assigning GlobalStyle to the createGlobalStyle import, 
+//making the following style the global style 
 html{
     height: 100%;
 }
@@ -23,6 +28,7 @@ body{
 `;
 
 export const Wrapper = styled.div`
+  //Making the Wrapper styling
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,5 +58,21 @@ export const Wrapper = styled.div`
     font-weight: 400;
     text-align: center;
     margin: 20px;
+  }
+
+  .start,
+  .next {
+    cursor: pointer;
+    background: linear-gradient(180deg, #fff, #ffcc91);
+    border: 2px solid #d38558;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    height: 40px;
+    margin: 20px 0;
+    padding: 0 40px;
+  }
+
+  .start {
+    max-width: 200px;
   }
 `;

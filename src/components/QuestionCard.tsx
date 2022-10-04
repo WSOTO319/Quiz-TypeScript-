@@ -1,5 +1,7 @@
 import React from "react";
 import { AnswerObject } from "../App";
+// Import Styles
+import { Wrapper, ButtonWrapper } from "./QuestionCard.styles";
 
 type Props = {
   //giving each property a type
@@ -22,7 +24,7 @@ const QuestionCard: React.FC<Props> = (
     totalQuestions,
   } //QuestionCard will return the following HTML
 ) => (
-  <div>
+  <Wrapper>
     <p className="number">
       {/*paragraph to display which question out of the total questions we are currently in  */}
       Question: {questionNr} / {totalQuestions}
@@ -35,7 +37,11 @@ const QuestionCard: React.FC<Props> = (
           answer //map answers to answer variable and return a div where button that was clicked by user is disabled and
         ) => (
           //onClick will call callback. Span tag is used to mark up a part of a text. Once again uses dangerously to insert HTML
-          <div key={answer}>
+          <ButtonWrapper
+            key={answer}
+            correct={userAnswer?.correctAnswer === answer}
+            userClicked={userAnswer?.answer === answer}
+          >
             <button
               disabled={userAnswer ? true : false}
               value={answer}
@@ -43,10 +49,10 @@ const QuestionCard: React.FC<Props> = (
             >
               <span dangerouslySetInnerHTML={{ __html: answer }} />
             </button>
-          </div>
+          </ButtonWrapper>
         )
       )}
     </div>
-  </div>
+  </Wrapper>
 );
 export default QuestionCard;
